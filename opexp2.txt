@@ -1,0 +1,36 @@
+class Person(object):
+    def init(self, first, last, age):
+        self.firstname = first
+        self.lastname = last
+        self.age = age
+        self.person = "From Person Class"
+
+    def displayDetails(self):
+        return self.firstname + " " + self.lastname + ", " + str(self.age)
+
+class Employee(Person):
+    def init(self, first, last, age, staffnum):
+        super().init(first, last, age)
+        self.staffnumber = staffnum
+        self.employee = "From Employee Class"
+
+    def displayDetails(self):
+        return self.firstname + " " + self.lastname + ", " + str(self.age) + ", " + str(self.staffnumber)
+
+    def displayEmployeeSalary(self, basic = None, hra = None):
+        if hra is None:
+            print ("Basic: ", basic)
+        else:
+            print ("Basic + hra: ", basic + hra)
+
+x = Person("jiraya","kkane",35)
+y = Employee("niru", "don", 30, "4589")
+print(x.person)
+print(x.displayDetails())
+print("\n-----------------\n")
+print(y.employee)
+print(y.displayDetails())
+print("\n")
+
+y.displayEmployeeSalary(2500)
+y.displayEmployeeSalary(100, 2000)
